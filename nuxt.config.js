@@ -12,6 +12,12 @@ export default {
     ]
   },
 
+  watchers: {
+    webpack: {
+      poll: true
+    }
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     'element-ui/lib/theme-chalk/index.css'
