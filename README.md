@@ -8,9 +8,11 @@
 
 コンテナ立てる
 - `docker-compose up -d`
- 
-サーバー立てる
-- `docker-compose exec nuxt npm run dev`
 
+コンテナに入る
+- `docker-compose exec nuxt ash`
+
+サーバー立てる
+- `npm run dev`
 
 http://localhost:3000/　にアクセス！！！！！
