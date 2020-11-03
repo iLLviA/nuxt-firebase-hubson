@@ -1,28 +1,29 @@
 <template>
   <div>
     <h1>TODO</h1>
-    <input v-model="text" type="text"></input>
-    <button @click="add">追加</button>
-    <ul>
-      <li v-for="( todo, index ) in todoList" :key="index">
-        {{ todo }}
-      </li>
-    </ul>
+    <List :todoList="todoList" />
+    <Form @addTodo="add" />
   </div>
 </template>
 
 <script>
+import List from "~/components/List";
+import Form from "~/components/Form";
+
 export default {
+  components: {
+    List,
+    Form
+  },
   data() {
     return {
       todoList: [],
-      text: ''
     }
   },
   props: {},
   methods: {
-    add() {
-      this.todoList.push(this.text)
+    add(text) {
+      this.todoList.push(text)
     }
   }
 }
