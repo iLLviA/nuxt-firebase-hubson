@@ -1,32 +1,34 @@
 <template>
   <div class="container">
-    <p>{{ counter }}</p>
-    <input type="number" v-model="countNum">
-    <div>
-      <button @click="increment">+1</button>
-      <button @click="decrement">-1</button>
-      <button @click="incrementByNum">任意</button>
+    <div class="app">
+      <h1>カウンターアプリ</h1>
+      <h2>{{ counter }}</h2>
+      <input type="number" v-model="countNum" />
+      <div class="buttons">
+        <button @click="increment">インクリメント</button>
+        <button @click="decrement">デクリメント</button>
+        <button @click="tkgw">任意の値を追加</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "index",
   data() {
     return {
-      countNum: 0
-    }
+      countNum: 0,
+    };
   },
   methods: {
     increment() {
-      this.$store.dispatch('counter/INCREMENT')
+      this.$store.dispatch("counter/INCREMENT");
     },
     decrement() {
-      this.$store.dispatch('counter/DECREMENT')
+      if (this.counter > 0) this.$store.dispatch("counter/INCREMENT");
     },
-    incrementByNum() {
-      this.$store.dispatch('counter/INCREMENT_BY_NUM', this.countNum)
+    tkgw() {
+      this.$store.dispatch("counter/TKGW", this.counter);
     },
   },
   computed: {
@@ -34,9 +36,19 @@ export default {
       return this.$store.state.counter.count
     }
   }
-}
+};
 </script>
 
-<style scoped>
+<style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app {
+}
 
+.buttons {
+  display: flex;
+}
 </style>

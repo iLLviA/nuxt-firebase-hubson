@@ -1,28 +1,27 @@
 export const state = () => ({
-  count: 0
+    counter: 0
 })
 
 export const mutations = {
-  increment(state) {
-    console.log('あああ');
-    state.count++
-  },
-  decrement(state) {
-    state.count--
-  },
-  incrementByNum(state, payload) {
-    state.count += Number(payload)
-  }
+    increments(state){
+        state.counter++
+    },
+    decrements(state){
+        state.counter--
+    },
+    tkgw(state, payload){
+        state.counter += payload
+    }
 }
 
 export const actions = {
-  INCREMENT({commit}) {
-    commit('increment');
-  },
-  DECREMENT({commit}) {
-    commit('decrement');
-  },
-  INCREMENT_BY_NUM({commit}, payload) {
-    commit('incrementByNum', payload);
-  }
+    INCREMENT({ commit }){
+        commit('increment')
+    },
+    DECREMENT({ commit }){
+        commit('decrement')
+    },
+    TKGW({ commit }, payload){
+        commit('tkgw',payload)
+    }
 }
